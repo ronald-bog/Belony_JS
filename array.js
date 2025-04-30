@@ -37,7 +37,7 @@ const retornoPop2 = colores2.shift();
 console.log(colores2);
 console.log(retornoPop2);
 
-//splice ****** eliminar, agregar, reemplazar
+//splice ****** eliminar, agregar, reemplazar  ** Cambia el array
 
 // splice para eliminar elementos (o 1 o 2 argumentos), retorna un array con elemento eliminado
 const planetas = ['Mercurio', 'Venus', 'Tierra', 'Marte'];
