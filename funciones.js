@@ -67,3 +67,41 @@ function world(x) {
 
 world(paises);
 */
+
+function suma(...numeros) {
+    let total = 0;
+    for (const i of numeros) {
+        total += i;
+    }
+    return total;
+}
+
+function suma1(...numeros) {
+    let total = 0;
+    for (const i of numeros) {
+        total += i;
+    }
+    console.log(total);
+}
+
+let total = 0;
+function suma2(...numeros) {
+    for (const i of numeros) {
+        total += i;
+    }
+    console.log(total);
+}
+
+let totalA;  // Esta variable es de tipo undefined
+function suma3(...numeros) {
+    for (const i of numeros) {
+        totalA += i;
+    }
+    console.log(totalA);
+}
+suma3(10, 5, 8);
+
+//console.log(suma(10, 5, 8));
+//suma1(10, 5, 8);
+//suma2(10, 5, 8);
+
