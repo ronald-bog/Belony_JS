@@ -82,3 +82,19 @@ const [saludo, info] = texto('Roger');
 console.log(saludo);
 console.log('************************************');
 console.log(info);
+
+// Expresion ternaria
+
+const nombre = "Roger";
+const edad = 15;
+const country = "Mexico";
+
+const saludo2 = (x, y, z) => {
+    const validacion = y >= 18 ? `mayor` : `menor`;
+    console.log(`Hola ${x} tienes ${y} años, tu pais de naciemiento es ${z} y eres ${validacion} de edad`);
+};
+
+const saludo3 = (x, y, z) =>
+    console.log(`Hola ${x} tienes ${y} años, tu pais de naciemiento es ${z} y eres ${y >= 18 ? `mayor` : `menor`} de edad`);
+
+saludo2(nombre, edad, country);
