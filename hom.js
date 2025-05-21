@@ -99,3 +99,36 @@ const [marca, anio, color] = arreglo;
 console.log(marca);
 console.log(anio);
 console.log(color);
+
+// reduce
+// sintaxis: array.reduce((acumulador, valor, index, array)=>{}, valor inicial)
+
+const valores = [200, 5, 60, 10, 3000]; // suma: 3275
+
+const sumatoria = valores.reduce((acc, vr) => acc + vr);
+const multiplicacion = valores.reduce((acc, vr) => acc * vr);
+
+console.log(sumatoria);
+console.log(multiplicacion);
+
+/*
+let x = null;
+console.log(typeof x);
+*/
+
+
+/*
+// Declaracion
+let z;
+
+// asignacion
+z = 10;
+
+// reasignacion
+z = 20;
+
+// Inicializacion
+let y = 100;
+*/
+
+const frameworksJS = ['React', 'Angular', 'Express', 'Vue', 'Nest', 'Next', 'Svelte'];
