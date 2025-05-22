@@ -132,3 +132,13 @@ let y = 100;
 */
 
 const frameworksJS = ['React', 'Angular', 'Express', 'Vue', 'Nest', 'Next', 'Svelte'];
+
+const todos = frameworksJS.reduce((acumulador, v) => `${acumulador} ${v}`);
+console.log(todos);
+console.log(todos.length);
+
+const nuevo = frameworksJS.join(' ');
+
+const nombre1 = 'Belony';
+const contenido = nombre1.includes('');
+console.log(contenido);
