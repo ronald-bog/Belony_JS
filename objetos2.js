@@ -1,5 +1,5 @@
 // Desestructuracion de Objetos
-
+/*
 const paises = {
     belize: 'Belmopan',
     chile: 'Santiago',
@@ -47,4 +47,60 @@ function validar(x) {
 Tu nombre es: ${name}`);
 }
 
-validar(usuario);
+//validar(usuario);
+
+function validar2({ id, name }) {
+    console.log(`Tu id es: ${id} - Tu nombre es: ${name}`);
+}
+//validar2(usuario);
+
+const validar3 = ({ id, name }) => console.log(`Tu id es: ${id} - Tu nombre es: ${name}`);
+
+validar3(usuario);
+
+// Desestructuracion de arreglos, seleccionando elementos especificos
+
+const lenguajes = ['Go', 'Basic', 'Pascal', 'C#', 'PL1', 'Cobol'];
+
+const [, run, botellas, , , julio] = lenguajes;
+
+console.log(run);
+console.log(botellas);
+console.log(julio);
+
+// Desestructuracion de arreglos con Rest ... *Devuelve un arreglo
+
+const leng = ['Go', 'Basic', 'Pascal', 'C#', 'PL1', 'Cobol'];
+
+const [, , ...lengSel] = leng;
+
+console.log(lengSel);
+
+// Profundizacion en Funciones
+
+// Retorno condicionado
+
+function evaluarEdad(edad) {
+    if (edad >= 18) {
+        return 'Eres mayor de edad';
+    }
+    else {
+        return 'Eres menor de edad';
+    }
+}
+
+console.log(evaluarEdad(20));
+*/
+// Funciones recursivas
+
+function pedirNumero() {
+    const valor = parseInt(prompt("Por favor dame un numero mayor a 6: "));
+    if (valor > 6) {
+        pedirNumero();
+    }
+    else {
+        alert('Gracias el numero es menor o iugal a 6');
+    }
+}
+
+pedirNumero();
