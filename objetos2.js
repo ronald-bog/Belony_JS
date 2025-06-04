@@ -91,16 +91,3 @@ function evaluarEdad(edad) {
 
 console.log(evaluarEdad(20));
 */
-// Funciones recursivas
-
-function pedirNumero() {
-    const valor = parseInt(prompt("Por favor dame un numero mayor a 6: "));
-    if (valor > 6) {
-        pedirNumero();
-    }
-    else {
-        alert('Gracias el numero es menor o iugal a 6');
-    }
-}
-
-pedirNumero();
