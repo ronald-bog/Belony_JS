@@ -34,38 +34,3 @@ function progresivo(z) {
 }
 
 //progresivo(11)
-
-
-// Operador (...NombreVar)
-
-function numeros(...x) {
-    return x;
-}
-
-//console.log(numeros('Belony', 'Jonas', 'Ana'));
-
-function listar(...nombres) {
-    nombres.forEach(nombre => console.log(nombre))
-}
-
-//listar('Jhon', 'Jessica', 'Belony', 'Jonas', 'Ana')
-
-function describirPersona(nombre, edad, ...hobbies) {
-    console.log(`Nombre: ${nombre}`);
-    console.log(`Edad: ${edad}`);
-    console.log(`Hobbies: ${hobbies.join(', ')}`);
-}
-
-describirPersona('Jhon', 20, 'Leer', 'Jugar Play S', 'Ver TV', 'Chatear en whatsapp');
-
-// Operador Spread (...)
-
-const numbers = [1345, 89, 65]
-console.log(numbers)
-console.log(...numbers)
-
-const nums = [20, 40, 60];
-function sumar(r, t, y) {
-    return r + t + y
-}
-console.log(sumar(...nums))

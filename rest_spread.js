@@ -7,7 +7,7 @@ function numeros(...x) {
 //console.log(numeros('Belony', 'Jonas', 'Ana'));
 
 function listar(...nombres) {
-    nombres.forEach(nombre => console.log(nombre))
+    nombres.forEach(nombre => console.log(nombre));
 }
 
 //listar('Jhon', 'Jessica', 'Belony', 'Jonas', 'Ana')
@@ -23,23 +23,23 @@ describirPersona('Jhon', 20, 'Leer', 'Jugar Play S', 'Ver TV', 'Chatear en whats
 
 // Operador Spread (...)
 
-const numbers = [1345, 89, 65]
-console.log(numbers)
-console.log(...numbers)
+const numbers = [1345, 89, 65];
+console.log(numbers);
+console.log(...numbers);
 
 const nums = [20, 40, 60];
 function sumar(r, t, y) {
-    return r + t + y
+    return r + t + y;
 }
-console.log(sumar(...nums))
+console.log(sumar(...nums));
 
-const numPares = [8, 20, 32, 68]
+const numPares = [8, 20, 32, 68];
 
-const maximo = Math.max(...numPares)
-console.log(maximo)
+const maximo = Math.max(...numPares);
+console.log(maximo);
 
-const numImpares = [1001, 57, 325, 9, 98, 23, 45]
-const copia = [...numImpares] //spread
+const numImpares = [1001, 57, 325, 9, 98, 23, 45];
+const copia = [...numImpares]; //spread
 
 //const [num1, num2, ...num3] = numImpares // Rest
 
@@ -71,7 +71,7 @@ const estudiante = {
     edad: 30
 };
 
-const copiaEstudiante = {...estudiante};
+const copiaEstudiante = { ...estudiante };
 
 console.log(estudiante);
 console.log(copiaEstudiante);
@@ -79,9 +79,22 @@ console.log(copiaEstudiante);
 const datosEstudio = {
     lenguaje: 'Javascript',
     nivel: 'Basico'
-}
+};
 
-const informacionTotalEstudiante = {...copiaEstudiante, ...datosEstudio};
+const informacionTotalEstudiante = { ...copiaEstudiante, ...datosEstudio };
 
 console.log(informacionTotalEstudiante);
 
+const estudent = {
+    materias: [],
+    agregarMateria(materia) {
+        materia.forEach(x => this.listaMaterias.push(x));
+    }
+};
+
+console.log(estudent.materias);
+
+const nuevas = ['Javascript', 'Algoritmos', 'Grafos', 'Estructuras de datos', 'control de versiones', 'Lenguajes', 'Tipado', 'Bases de datos', 'Calculo', 'Maquinas'];
+estudent.agregarMateria(nuevas);
+
+console.log(estudent.materias);
