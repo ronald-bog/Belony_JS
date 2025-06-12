@@ -98,3 +98,5 @@ const nuevas = ['Javascript', 'Algoritmos', 'Grafos', 'Estructuras de datos', 'c
 estudent.agregarMateria(nuevas);
 
 console.log(estudent.materias);
+
+
