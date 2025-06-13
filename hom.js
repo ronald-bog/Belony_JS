@@ -142,3 +142,27 @@ const nuevo = frameworksJS.join(' ');
 const nombre1 = 'Belony';
 const contenido = nombre1.includes('');
 console.log(contenido);
+
+// find: Retorna el elemento que cumple una condicion especifica. ** No devuelve arrays
+
+const accionesPersona = [
+    { codigo: 1, accion: "Estudiar" },
+    { codigo: 2, accion: "Dormir" },
+    { codigo: 3, accion: "Despertar" },
+    { codigo: 4, accion: "Ir al Gym" },
+];
+
+function cambiarDescripcion(cod, nuevaDesc) {
+    const accionEncontrada = accionesPersona.find(ac => ac.codigo === cod);
+    accionEncontrada.accion = nuevaDesc;
+}
+console.log(accionesPersona);
+
+function cambiarCod(x, newCod) {
+    const codFind = accionesPersona.find(co => co.accion === x);
+    codFind.codigo = newCod;
+}
+
+console.log('***********************');
+cambiarCod('Dormir', 22);
+console.log(accionesPersona);
