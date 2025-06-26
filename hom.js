@@ -166,3 +166,4 @@ function cambiarCod(x, newCod) {
 console.log('***********************');
 cambiarCod('Dormir', 22);
 console.log(accionesPersona);
+
