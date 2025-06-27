@@ -35,5 +35,28 @@ const tareas = [
     { id: 4, descripcion: "correr", completada: false },
 ];
 
-tareas[2].completada = true;
+const nuevo = tareas.filter(nn => nn.id === 65);
+
+nuevo[0].completada = true;
+
+console.log(nuevo);
+console.log('**********************************');
 console.log(tareas);
+
+// ejemplo 3
+const pares = [66, 48, 100, 94, 200];
+
+const parFiltrado = pares.filter(numero => numero === 100);
+
+parFiltrado[0] = 102;
+
+console.log(parFiltrado);
+console.log(pares);
+
+// ejemplo 4
+
+const parejas = [[5, 6], [101, 104], [98, 45], [8, 4], [47, 74], [32, 24]];
+const filtro = parejas.filter(elem => elem[1] === 45);
+filtro[0][1] = 11;
+console.log(parejas);
+console.log(filtro);
