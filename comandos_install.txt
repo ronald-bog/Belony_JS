@@ -1,0 +1,20 @@
+instalar local:
+
+npm install <package>
+npm i <package>
+
+
+instalar global:
+
+npm install -g <package>
+npm i -g <package>
+npm install --global <package>
+npm i --global <package>
+
+
+instalar en desarrollo (dev):
+
+npm install -D <package>
+npm i -D <package>
+npm install --save-dev <package>
+npm i --save-dev <package>
