@@ -16,8 +16,8 @@ const jsonCarro = JSON.stringify(carro);
 
 //console.log('ESTE ES UN CL DESPUES DEL WRITEFILE');
 
-
-/* fs.writeFile('./xx/prueba2.json', jsonCarro, 'utf-8', err => {
+/*
+ fs.writeFile('./xx/prueba2.json', jsonCarro, 'utf-8', err => {
          if (err) {
              console.log(`ocurrio un error de codigo: ${err.errno}`);
         }

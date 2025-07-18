@@ -41,13 +41,6 @@ fs.readFile('./prueba.json', 'utf-8', (err, data) => {
 
 
 
-
-
-
-
-
-
-
 /*
 planetasObj[0].planeta = 'tierra';
 
