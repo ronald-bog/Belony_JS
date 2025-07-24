@@ -1,3 +1,2 @@
 
-
-const queryParams = 'lenguaje=JavaScript&framework=express&nivel=intermedio';
+const queryParams = 'lenguaje=JavaScript&framework=React&nivel=basico';                     

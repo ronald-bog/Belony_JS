@@ -3,7 +3,6 @@
   "version": "1.0.5",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
     "ejecutar": "node index.js",
@@ -11,5 +10,8 @@
   },
   "keywords": [],
   "author": "Belony",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }
