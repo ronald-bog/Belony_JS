@@ -6,6 +6,7 @@ const server = http.createServer((req, res) => {
     const parseUrl = url.parse(req.url, true);
     const path = parseUrl.pathname;
     const queryParams = parseUrl.query;
+    const pathSep = path.split("/");
 
     if (req.method === 'POST' && path === '/users') {
         let body = '';
@@ -34,15 +35,16 @@ const server = http.createServer((req, res) => {
         console.log(nombreRecibido);
         console.log(edadRecibido);
 
-
-
         // const ur = 'http://localhost:3000/testurl/prueba?nombre=Roger';
         // const parseo = url.parse(ur, true);
         // console.log(parseo);
 
     }
-    else if (path === '/2') {
-        res.write('respuesta2');
+    else if (`/${pathSep[1]}` === '/estudiantes') {
+        console.log(parseInt(pathSep[2]) + 10);
+
+        res.write('respuesta desde recurso estudiantes prueba 2\n');
+        res.end(pathSep[2]);
     }
     else if (path === '/3') {
 
