@@ -1,59 +1,43 @@
-const http = require('http');
-const url = require('url');
-const PORT = 3000;
+const http = require("http");
+const PORT = 3001;
+//const fs = require("fs").promises;
+const url = require("url");
 
 const server = http.createServer((req, res) => {
     const parseUrl = url.parse(req.url, true);
-    const path = parseUrl.pathname;
-    const queryParams = parseUrl.query;
-    const pathSep = path.split("/");
+    const path = parseUrl.pathname; //string "/usuarios/3"
+    const arrPathName = path.split("/"); // Arreglo ["", "usuarios", "3"]
+    const id = arrPathName[2]; // 3
+    const nombreEndpoint = `/${arrPathName[1]}`; // "usuarios"
+    console.log(parseUrl);
+    console.log(path);
+    console.log(arrPathName);
+    console.log(id);
+    console.log(nombreEndpoint);
 
-    if (req.method === 'POST' && path === '/users') {
-        let body = '';
-        req.on('data', chunk => {
-            //body = body + chunk
-            body += chunk;
-        });
-        req.on('end', () => {
-            try {
-                const objData = JSON.parse(body);
-                console.log('El Json recibido contiene:', objData);
-                //res.write('El json que enviaste fue recibido exitosamente');
-                res.end('El json que enviaste fue recibido exitosamente');
-            } catch (error) {
-                console.log('Error al procesar JSON');
-                res.end('El json no se pudo procesar en el backend');
-            }
-        });
 
-    } else if (path === '/testurl') {
-        //console.log(queryParams);
-        //console.log(queryParams.nombre);
-
-        let nombreRecibido = queryParams.nombre;
-        let edadRecibido = parseInt(queryParams.edad) + 10;
-        console.log(nombreRecibido);
-        console.log(edadRecibido);
-
-        // const ur = 'http://localhost:3000/testurl/prueba?nombre=Roger';
-        // const parseo = url.parse(ur, true);
-        // console.log(parseo);
-
+    if (req.method === "POST" && nombreEndpoint === "/usuarios") {
+        res.end("Creacion de usuarios");
     }
-    else if (`/${pathSep[1]}` === '/estudiantes') {
-        console.log(parseInt(pathSep[2]) + 10);
-
-        res.write('respuesta desde recurso estudiantes prueba 2\n');
-        res.end(pathSep[2]);
-    }
-    else if (path === '/3') {
-
+    else if (
+        req.method === "GET" &&
+        id !== undefined &&
+        nombreEndpoint === "/usuarios"
+    ) {
+        res.end("Obtener la informacion de solo un usuario mediante un Id ");
+    } else if (req.method === "GET" && nombreEndpoint === "/usuarios") {
+        res.end("listado de todos los usuarios ");
+    } else if (req.method === "PUT" && nombreEndpoint === "/usuarios") {
+        res.end("este Endpoint realiza edicion de usuario ");
+    } else if (req.method === "DELETE" && nombreEndpoint === "/usuarios") {
+        res.end("Eliminacion de un usuario");
     } else {
-
+        res.writeHead(404);
+        res.end("El Endpoint no existe ");
     }
-
 });
 
-server.listen(PORT, () =>
-    console.log(`Servidor ejecutandose correctamente en puerto ${PORT}`)
-);
+server.listen(PORT, () => {
+    console.log(`servidor ejecutandose en el puerto ${PORT}`);
+});
+
