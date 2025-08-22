@@ -1,18 +1,10 @@
-const mysql = require('mysql2/promise');
 const express = require('express');
+const pool = require('./conn');
 const app = express();
 const PORT = 3001;
 app.use(express.json());
 
-const infoBase = {
-    host: 'localhost',
-    user: 'root',
-    password: '123',
-    database: 'data_flask'
-};
-
-const pool = mysql.createPool(infoBase);
-
+// Consulta todos los usuarios
 app.get('/usuarios', async (req, res) => {
     try {
         const sql = 'SELECT * FROM usuarios';
@@ -33,18 +25,16 @@ app.get('/usuarios', async (req, res) => {
     }
 });
 
+// Consulta solo un usuario por su ID
 app.get('/usuarios/:id', async (req, res) => {
     const idx = req.params.id;
     //const sql = 'SELECT * FROM usuarios WHERE id =' + idx; // no recomendable para evitar inyeccion sql
     //const sql = 'SELECT * FROM usuarios WHERE id = ?' // (?) parametro posicional, placeholder, especificador
     const [result] = await pool.execute('SELECT * FROM usuarios WHERE id = ?', [idx]);
-    console.log(result[0]);
+    res.status(200).json(result);
 });
 
-app.listen(PORT, () => {
-    console.log('Servidor ok');
-});
-
+// Creacion de un usuario
 app.post('/usuarios', async (req, res) => {
     const { nombre, correo } = req.body;
     //const nombre = body.nombre
@@ -54,3 +44,49 @@ app.post('/usuarios', async (req, res) => {
     const respuesta = await pool.execute(sql, [nombre, correo]);
     res.status(201).json(respuesta);
 });
+
+// Edicion de un usuario por su ID
+app.put('/usuarios/:id', async (req, res) => {
+    const { nombre, correo } = req.body;
+    const id = req.params.id;
+    const sql = 'UPDATE usuarios SET nombre = ?, correo = ? WHERE id = ?';
+    const respuesta = await pool.execute(sql, [nombre, correo, id]);
+    const resClient = {
+        mensaje: 'El usuario se actualizo correctamente',
+        success: 'OK',
+        resultado_SQL: 'OK',
+        info_SQL: respuesta[0].info
+    };
+    res.status(200).json(resClient);
+});
+
+// Edicion de un usuario por su ID (query params)
+app.put('/usuarios', async (req, res) => {
+    const { nombre, correo, id } = req.query;
+    const sql = 'UPDATE usuarios SET nombre = ?, correo = ? WHERE id = ?';
+    const respuesta = await pool.execute(sql, [nombre, correo, id]);
+    const resClient = {
+        mensaje: 'El usuario se actualizo correctamente con query params',
+        success: 'OK',
+        resultado_SQL: 'OK',
+        info_SQL: respuesta[0].info
+    };
+    res.status(200).json(resClient);
+});
+
+// Eliminacion de un usuario por su ID
+app.delete('/usuarios/:id', async (req, res) => {
+    const id = req.params.id;
+    const sql = 'DELETE FROM usuarios WHERE id = ?';
+    const response = await pool.execute(sql, [id]);
+    const resClient = {
+        mensaje: 'El usuario se elimino correctamente',
+        resultado_SQL: 'OK',
+    };
+    res.status(200).json(resClient);
+});
+
+app.listen(PORT, () => {
+    console.log('Servidor ok');
+});
+
