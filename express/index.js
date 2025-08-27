@@ -49,10 +49,13 @@ app.get('/json', (req, res) => {
     res.json({ nombre: 'Belony', profesion: 'Engineer' });
 });
 
-app.use((req, res) => {
+
+app.use(noEndPoint());
+
+function noEndPoint(req, res) {
     res.status(404);
     res.end('El endpoint que digitaste no existe');
-});
+}
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en puerto ${PORT}`);
