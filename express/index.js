@@ -4,6 +4,9 @@ const PORT = 3000;
 
 app.use(express.json());
 
+//Middleware de informacion de la peticion
+app.use(info);
+
 app.post('/usuarios', (req, res) => {
     const cuerpo = req.body;
     console.log(typeof cuerpo);
@@ -33,6 +36,12 @@ app.post('/p/:zz', (req, res) => {
     res.end('Finalizada');
 });
 
+//Middleware para mostrar informacion de ejemplo
+app.use((req, res, next) => {
+    console.log('Pasaste por todos lo endpoints POST');
+    next();
+});
+
 app.get('/pruebas', (req, res) => {
     res.write('Esta es la primera linea\n');
     res.write('Esta es la segunda linea\n');
@@ -49,10 +58,24 @@ app.get('/json', (req, res) => {
     res.json({ nombre: 'Belony', profesion: 'Engineer' });
 });
 
+// Middleware donde separamos la declaracion (creacion) de la funcion
+/* app.use(noEndPoint());
+ */
 
-app.use(noEndPoint());
+// Middleware incorporado todo dentro del use
+app.use(mensaje);
 
 function noEndPoint(req, res) {
+    res.status(404);
+    res.end('El endpoint que digitaste no existe');
+}
+
+function info(req, res, next) {
+    console.log(`Metodo: ${req.method} - Endpoint: ${req.url}`);
+    next();
+}
+
+function mensaje(req, res) {
     res.status(404);
     res.end('El endpoint que digitaste no existe');
 }
