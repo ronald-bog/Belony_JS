@@ -24,14 +24,6 @@ async function getAllProducts() {
 async function getProductById(id) {
   try {
     const producto = await productoRepository.getProductById(id);
-
-    if (!producto) {
-      return {
-        success: false,
-        message: `Producto con id: ${id} no existe en la base de datos.`,
-      };
-    }
-
     return {
       success: true,
       data: producto,
@@ -52,14 +44,6 @@ async function postProduct(id, descripcion, valor) {
       descripcion,
       valor
     );
-
-    if (!newProducto) {
-      return {
-        success: false,
-        message: "No se pudo crear el producto.",
-      };
-    }
-
     return {
       success: true,
       message: "El producto se creó correctamente.",
@@ -82,13 +66,6 @@ async function putProduct(id, descripcion, valor) {
       valor
     );
 
-    if (!productoActualizado) {
-      return {
-        success: false,
-        message: "No se pudo actualizar el producto.",
-      };
-    }
-
     return {
       success: true,
       message: "El producto se actualizó correctamente.",
@@ -106,14 +83,6 @@ async function putProduct(id, descripcion, valor) {
 async function deleteProduct(id) {
   try {
     const productoDeleted = await productoRepository.deleteProduct(id);
-
-    if (!productoDeleted) {
-      return {
-        success: false,
-        message: "No se pudo borrar el producto.",
-      };
-    }
-
     return {
       success: true,
       message: "El producto se borro correctamente.",

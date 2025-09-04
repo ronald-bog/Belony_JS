@@ -9,7 +9,7 @@ async function getAllProducts() {
 async function getProductById(id) {
   const sql = "SELECT * FROM producto WHERE id = ?";
   const [rows] = await pool.execute(sql, [id]);
-  return rows[0];
+  return rows;
 }
 
 async function postProduct(id, descripcion, valor) {
