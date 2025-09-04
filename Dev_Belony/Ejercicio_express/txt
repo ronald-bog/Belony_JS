@@ -1,0 +1,18 @@
+/\*
+Desarrollar una API con Node y Express, características:
+
+1. Manejar una tabla MySQL llamada producto, tendrá id que será el código del producto de tipo entero y no debe ser autoincrement, descripción varchar, valor de tipo entero.
+
+2. Manejar una tabla MySQL llamada movimiento, tendrá id autoincrement, columna id_producto que será llave foránea con la tabla producto, columna descripción_movimiento, y columna movimiento que almacenara un entero.
+
+3. La API debe tener estar construida por capas.
+
+4. Endpoints encargados de hacer CRUD con los productos. En la eliminación solo dejara eliminar un producto si este no tiene movimiento.
+
+5. Endpoint encargado de almacenar un movimiento, la cual buscara por id del producto y en la columna 'descripción_movimiento' almacenará la descripción que viene en el json y en la columna 'movimiento' almacenara el valor que viene en el json.
+
+6. Endpoint encargado de mostrar todos los movimientos del producto especifico y mostrar el saldo que queda después de los movimientos, los movimientos pueden ser negativos o positivos.
+
+7. Endpoint encargado solo de mostrar el saldo.
+
+\*/
