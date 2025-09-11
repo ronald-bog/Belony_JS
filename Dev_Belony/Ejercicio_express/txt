@@ -10,9 +10,13 @@ Desarrollar una API con Node y Express, características:
 4. Endpoints encargados de hacer CRUD con los productos. En la eliminación solo dejara eliminar un producto si este no tiene movimiento.
 
 5. Endpoint encargado de almacenar un movimiento, la cual buscara por id del producto y en la columna 'descripción_movimiento' almacenará la descripción que viene en el json y en la columna 'movimiento' almacenara el valor que viene en el json.
+   En descripcion_movimiento pueden llegar 3 alternativas:
+   --Una venta: si es venta debe registrar el movimiento con un entero negativo, y debe retornar el total de la venta al cliente.
+   --Un traslado:si es traslado debe registrar el movimiento con un entero negativo, supuestamente un producto de una bodega a otro.
+   --Una compra: se debe registrar el movimiento con un entero positivo.
 
-6. Endpoint encargado de mostrar todos los movimientos del producto especifico y mostrar el saldo que queda después de los movimientos, los movimientos pueden ser negativos o positivos.
+6. Endpoint encargado de mostrar todos los movimientos del producto especifico, los movimientos pueden ser negativos o positivos.
 
-7. Endpoint encargado solo de mostrar el saldo.
+7. Endpoint encargado solo de mostrar el saldo de un producto.
 
 \*/

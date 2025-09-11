@@ -8,4 +8,5 @@ async function noProduct(req, res, next) {
   }
   next();
 }
+
 module.exports = { noProduct };

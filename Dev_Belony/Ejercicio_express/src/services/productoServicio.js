@@ -44,6 +44,7 @@ async function postProduct(id, descripcion, valor) {
       descripcion,
       valor
     );
+
     return {
       success: true,
       message: "El producto se creó correctamente.",
