@@ -1,8 +1,16 @@
-const movimientoservice = require("../services/movimientoServicio");
+const movimientoService = require("../services/movimientoServicio");
 
+async function getAllMovimiento(req, res) {
+  const allMovimiento = await movimientoService.getAllMovimiento();
+  if (allMovimiento.success) {
+    res.status(200).json(allMovimiento);
+  } else {
+    res.status(500).end(allMovimiento.message);
+  }
+}
 async function createMovimiento(req, res) {
   const bodyMovimiento = req.body;
-  const newMovimiento = await movimientoservice.createMovimiento(
+  const newMovimiento = await movimientoService.createMovimiento(
     bodyMovimiento
   );
   if (newMovimiento.success) {
@@ -22,6 +30,20 @@ async function getMovimientoById(req, res) {
   }
 }
 
-async function getSaldo() {}
+async function getSaldo(req, res) {
+  const { id } = req.params;
+  console.log(id);
+  const cantidadSaldo = await movimientoService.getSaldo(id);
+  if (cantidadSaldo.success) {
+    res.status(200).json(cantidadSaldo);
+  } else {
+    res.status(500).json(cantidadSaldo);
+  }
+}
 
-module.exports = { createMovimiento, getMovimientoById, getSaldo };
+module.exports = {
+  getAllMovimiento,
+  createMovimiento,
+  getMovimientoById,
+  getSaldo,
+};

@@ -1,18 +1,43 @@
 const movimientoRepository = require("../repositories/movimientoRepository");
+const productoRepository = require("../repositories/productoRepository");
+
+async function getAllMovimiento() {
+  try {
+    const allMovimiento = await movimientoRepository.getAllMovimiento();
+    return {
+      success: true,
+      data: allMovimiento,
+      message: "Lista de movimiento",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "ocurrio un error en la base de datos",
+    };
+  }
+}
 
 async function createMovimiento(bodyMovimiento) {
   try {
-    const { id_producto, descripcion_movimiento, cantidad } = bodyMovimiento;
-    let cantidadNegativa;
+    let { id_producto, descripcion_movimiento, cantidad } = bodyMovimiento;
+    const productoId = await productoRepository.getProductById(id_producto);
+
     if (
       descripcion_movimiento === "venta" ||
       descripcion_movimiento === "traslado"
     ) {
-      cantidadNegativa = -Math.abs(cantidad);
-      console.log(cantidadNegativa);
-    } else {
-      Math.abs(cantidad);
+      cantidad = -Math.abs(cantidad);
     }
+    const saldoDisponible = await movimientoRepository.getSaldo(id_producto);
+    const saldo = parseInt(saldoDisponible.saldo);
+
+    if (saldo + cantidad < 0) {
+      return {
+        success: false,
+        message: "Saldo insuficiente para realizar el movimiento.",
+      };
+    }
+
     const newMovimiento = await movimientoRepository.createMovimiento(
       id_producto,
       descripcion_movimiento,
@@ -32,6 +57,12 @@ async function createMovimiento(bodyMovimiento) {
         data: newMovimiento,
       };
     } else if (descripcion_movimiento === "venta") {
+      return {
+        success: true,
+        message: "El movimiento de la venta  se hizo exitosamente",
+        data: newMovimiento,
+        total: Math.abs(productoId[0].valor * cantidad),
+      };
     }
   } catch (error) {
     return {
@@ -57,6 +88,25 @@ async function getMovimientoById(id) {
   }
 }
 
-async function getSaldo() {}
+async function getSaldo(id) {
+  try {
+    const cantidadSaldo = await movimientoRepository.getSaldo(id);
 
-module.exports = { createMovimiento, getMovimientoById, getSaldo };
+    return {
+      success: true,
+      saldo: parseInt(cantidadSaldo.saldo),
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "Ocurrió un error al consultar la base de datos.",
+    };
+  }
+}
+
+module.exports = {
+  getAllMovimiento,
+  createMovimiento,
+  getMovimientoById,
+  getSaldo,
+};

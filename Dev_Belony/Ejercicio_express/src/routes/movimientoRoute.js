@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { noProduct } = require("../middleware/noProduct");
 const movimientoController = require("../controllers/movimientoController");
-const { noMovimiento1 } = require("../middleware/noMovimiento");
+
+router.get("/", movimientoController.getAllMovimiento);
 router.post("/", movimientoController.createMovimiento);
-router.get("/:id", noMovimiento1, movimientoController.getMovimientoById);
-router.get("/saldo/:id", movimientoController.getSaldo);
+router.get("/:id", noProduct, movimientoController.getMovimientoById);
+router.get("/saldo/:id", noProduct, movimientoController.getSaldo);
 
 module.exports = router;
