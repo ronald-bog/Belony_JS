@@ -18,7 +18,6 @@ console.log('C');
 
 
 
-
 // const csv = `NOMBRE;APELLIDO;EDAD\nJohn; Doe; 25\nJames; Gosling; 80\nGuido;Van Rossum; 70\nBrendan; Eich; 60\nGeorge; Boole; 210`;
 
 const csv = 'NOMBRE;APELLIDO;EDAD\nJohn; Doe\nJames;Gosling\nGuido;Van Rossum\nBrendan; Eich\nGeorge;Boole';
