@@ -74,3 +74,60 @@ function delay() {
 
 delay();
 
+//* finally: siempre se ejecuta exista o no Error.
+
+try {
+    const estudiante = 'Sofia';
+    console.log(estudiante);
+} catch (error) {
+    console.log('se produce un ERROR');
+}
+
+console.log('Esta porcion de codigo siempre se va a ejecutar');
+
+
+//* throw: lanzar una exepcion (ERROR) y adicional poner mensaje personalizado
+
+try {
+    throw new Error("He creado este error de referencia");
+} catch (error) {
+    console.log(error.name);
+    console.log(error.message);
+}
+
+//*  instanceof: validar tipo de exepcion (error), basado en la instancia (poo)
+
+
+try {
+    console.log(estudiante);
+    //JSON.parse('{"nombre":"Juan", "edad":}');
+
+} catch (error) {
+    if (error instanceof SyntaxError) {
+        console.log('Este es un error de sintaxis');
+    } else if (error instanceof ReferenceError) {
+        console.log('Este es un error de referencia');
+    } else if (error instanceof TypeError) {
+        console.log('Este es un error de tipo');
+    } else if (error instanceof RangeError) {
+        console.log('Este es un error de rango');
+    }
+}
+
+try {
+    //console.log(estudiante);
+    //JSON.parse('{"nombre":"Juan", "edad":}');
+    const city = 'Madrid';
+    console.log(city.repeat(-2));
+
+} catch (error) {
+    if (error.name === 'SyntaxError') {
+        console.log('Este es un error de sintaxis');
+    } else if (error.name === 'ReferenceError') {
+        console.log('Este es un error de referencia');
+    } else if (error.name === 'TypeError') {
+        console.log('Este es un error de tipo');
+    } else if (error.name === 'RangeError') {
+        console.log('Este es un error de rango');
+    }
+}
