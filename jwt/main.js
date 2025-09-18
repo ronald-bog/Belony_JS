@@ -1,7 +1,17 @@
 const jwt = require('jsonwebtoken');
 
+// dotenv: libreria para gestionar variables de entorno
+// npm install dotenv
+
+// .env
+// importacion de la libreria 'dotenv'
+require('dotenv').config({ quiet: true });
+
+// Como llamar el archivo .env
+// process.env.jwt_key
+
 // Crear un token JWT, metodo 'sign()'
-const secreto = "b1234";
+//const secreto = "b1234";
 
 const payload = {
     nameProduct: "Iphone 17",
@@ -10,23 +20,23 @@ const payload = {
 };
 
 const options = {
-    expiresIn: '1h'
+    expiresIn: '1m'
 };
 
-const token = jwt.sign(payload, secreto, options);
+const token = jwt.sign(payload, process.env.KEYJWT, options);
 
 console.log(`El TOKEN generado es: ${token}`);
 
 
 // Verificar un token JWT, metodo 'verify()'
 
-const tokenGenerado = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lUHJvZHVjdCI6IklwaG9uZSAxNyIsImlkUHJvZHVjdG8iOjUwMSwic2FsdWRvcyI6IkhvbGEgY29tbyBlc3RhcyIsImlhdCI6MTc1ODA3NTkzMiwiZXhwIjoxNzU4MDc5NTMyfQ.vujNMV2MWiZOLGn6wt1UJ6t9L5-95bM_tNrUhfV19SM';
+const tokenGenerado = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lUHJvZHVjdCI6IklwaG9uZSAxNyIsImlkUHJvZHVjdG8iOjUwMSwic2FsdWRvcyI6IkhvbGEgY29tbyBlc3RhcyIsImlhdCI6MTc1ODE2MDA4MywiZXhwIjoxNzU4MTYwMTQzfQ.StOf7Tk1bs0EdfB72y1iN8RP5JtkFjQqQqG0Lu4HIAs';
 
-const decodificar = jwt.verify(tokenGenerado, secreto);
-console.log(`Token verificado: ${decodificar}`);
+//const decodificar = jwt.verify(tokenGenerado, process.env.KEYJWT);
+//console.log(`Token verificado: ${decodificar}`);
 
 try {
-    const carga = jwt.verify(tokenGenerado, secreto);
+    const carga = jwt.verify(tokenGenerado, process.env.KEYJWT);
     console.log('!!!!  EL TOKEN ES VALIDO FELICITACIONES !!!!!');
     console.log('La carga util (payload) del token es:');
     console.log(carga);
@@ -34,7 +44,6 @@ try {
     console.log('*** EL TOKEN NO ES VALIDO ***');
 }
 
-
 // Decodificar carga util sin llave: metodo 'decode()':
-const cargaDecode = jwt.decode(tokenGenerado);
-console.log(cargaDecode);
+//const cargaDecode = jwt.decode(tokenGenerado);
+//console.log(cargaDecode);
