@@ -15,11 +15,28 @@ app.post('/login', (req, res) => {
 
     if (username === usuario && pass === password) {
         // crear el token
-        const token = jwt.sign(payload, process.env.KEYJWT, { expiresIn: '2m' });
-        res.status(200).json({ token: token });
+        const token = jwt.sign(payload, process.env.KEYJWT, { expiresIn: '5m' });
+        res.status(200).json({ message: "Autenticacion satisfactoria", token: token });
     } else {
         res.status(401).json({ message: 'Credenciales invalidas' });
     }
 });
 
-app.listen(3000, () => console.log('Server OK!!!'));
+app.get('/protected', (req, res) => {
+    const { authorization } = req.headers; // Obtener token de los headers (bearer token)
+    const token = authorization.split(" ")[1]; // Separar el token
+
+    try {
+        const verificacion = jwt.verify(token, process.env.KEYJWT);
+        const mtos = listadoMovimientos();
+        res.json({ message: "Acceso permitido", user: verificacion, resListMov: mtos });
+    } catch (error) {
+        res.status(401).json({ message: 'TOKEN INVALIDO' });
+    }
+});
+
+function listadoMovimientos() {
+    return "Accediste al modulo de movimientos";
+}
+
+app.listen(3002, () => console.log('Server OK!!!'));
