@@ -8,11 +8,12 @@ const {
   deleteProduct,
 } = require("../controllers/productoController");
 const { noProduct } = require("../middleware/noProduct");
+const { AuthToken } = require("../middleware/validacionToken");
 
-router.get("/", getAllProducts);
-router.get("/:id", noProduct, getProductById);
-router.post("/", postProduct);
-router.put("/:id", noProduct, putProduct);
-router.delete("/:id", noProduct, deleteProduct);
+router.get("/", AuthToken, getAllProducts);
+router.get("/:id", AuthToken, noProduct, getProductById);
+router.post("/", AuthToken, postProduct);
+router.put("/:id", AuthToken, noProduct, putProduct);
+router.delete("/:id", AuthToken, noProduct, deleteProduct);
 
 module.exports = router;

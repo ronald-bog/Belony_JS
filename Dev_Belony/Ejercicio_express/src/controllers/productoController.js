@@ -1,9 +1,7 @@
 const productoService = require("../services/productoServicio");
 
 async function getAllProducts(req, res) {
-  const { authorization } = req.headers;
-
-  const productos = await productoService.getAllProducts(authorization);
+  const productos = await productoService.getAllProducts();
   if (productos.success) {
     res.status(200).json(productos);
   } else {
