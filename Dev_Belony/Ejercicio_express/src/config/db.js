@@ -7,6 +7,14 @@ const baseDatos = {
   password: "123456789",
 };
 
-const pool = mysql.createPool(baseDatos);
+const loginDb = {
+  host: "localhost",
+  user: "root",
+  database: "login_db",
+  password: "123456789",
+};
 
-module.exports = pool;
+const pool = mysql.createPool(baseDatos);
+const pool2 = mysql.createPool(loginDb);
+
+module.exports = { pool, pool2 };
