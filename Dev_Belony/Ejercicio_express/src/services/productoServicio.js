@@ -1,13 +1,13 @@
 const productoRepository = require("../repositories/productoRepository");
-const jwt = require("jsonwebtoken");
-require("dotenv").config({ quiet: true });
+//const jwt = require("jsonwebtoken");
+//require("dotenv").config({ quiet: true });
 
-async function getAllProducts(token) {
-  const tokenSplit = token.split(" ")[1];
+async function getAllProducts() {
+  //const tokenSplit = token.split(" ")[1];
 
   try {
-    const verificarToken = jwt.verify(tokenSplit, process.env.JWT_SECRET);
-    console.log(verificarToken);
+    //const verificarToken = jwt.verify(tokenSplit, process.env.JWT_SECRET);
+    //console.log(verificarToken);
     const productos = await productoRepository.getAllProducts();
     if (productos.length === 0) {
       return {

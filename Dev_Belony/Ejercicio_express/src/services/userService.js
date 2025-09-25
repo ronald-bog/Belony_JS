@@ -8,7 +8,7 @@ async function getUser(user) {
     const { user_db, password_db } = await userRepository.getUser();
     if (userCliente === user_db && passwordCliente === password_db) {
       const token = jwt.sign({}, process.env.JWT_SECRET, {
-        expiresIn: "1h",
+        expiresIn: "15m",
       });
 
       return {
