@@ -6,6 +6,7 @@
 //* Los metodos no necesitan palabra function dentro de las clases
 //* Cuando creamos no es necesario especificar un constructor, pero si es recomendable.
 //* Para crear un constructor utilizamos palabra reservada 'constructor'
+//* Las propiedades no es necesario escribierlas si tenemos un constructor, pero es recomendable.
 
 class Persona {
     nombre;
@@ -51,15 +52,17 @@ empleado.saludar();
 persona2.saludar();
 */
 
-const persona1 = new Persona('Hulk', 50);
-const persona2 = new Persona('Andres', 40);
-const persona3 = new Persona('Bill', 10);
-const persona4 = new Persona('Sofia', 11);
-const persona5 = new Persona('Donald', 22);
+const persona1 = new Persona('Hulk');
+// const persona2 = new Persona('Andres', 40);
+// const persona3 = new Persona('Bill', 10);
+// const persona4 = new Persona('Sofia', 11);
+// const persona5 = new Persona('Donald', 22);
+
 
 console.log(persona1.nombre);
-console.log(persona2.nombre);
-console.log(persona3.nombre);
-console.log(persona4.edad);
-console.log(persona5.nombre);
+console.log(persona1.edad);
+// console.log(persona2.nombre);
+// console.log(persona3.nombre);
+// console.log(persona4.edad);
+// console.log(persona5.nombre);
 
