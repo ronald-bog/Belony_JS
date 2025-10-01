@@ -3,17 +3,17 @@
 // Modificador de acceso public: (no lleva simbolo o palabra)
 
 class Prueba {
-    atributo = 5000;// publico
-    #medidas = 6;
+    atributo;// publico
+    #medidas;
     color;
-    #pais = "Colombia";
-
+    #pais;
 
     constructor(a, m, c, p) {
         this.atributo = a;
         this.#medidas = m;
         this.color = c;
         this.#pais = p;
+
     }
 
     getMedidas() {
@@ -34,39 +34,18 @@ class Prueba {
 
 }
 
-const prueba1 = new Prueba(1000, 15, "verde");
+const prueba1 = new Prueba(1000, 15, "verde", 'Colombia');
 
-console.log(prueba1.atributo);
-console.log(prueba1.color);
-console.log(prueba1.getMedidas());
-prueba1.setMedidas(6896);
-console.log(prueba1.getMedidas());
-console.log(prueba1.getPais()); // undefined
-prueba1.setPais("Alemania");
 console.log(prueba1.getPais());
 
+prueba1.pais = 'Belice';
+console.log(prueba1.pais);
 
-// STATIC: modificador de contexto
+console.log('***********************************');
 
-const planeta = 'Saturno';
+const zzz = new Prueba(5746, 85, "azul", 'Suiza');
 
-class Sistema {
-    static planeta = "Tierra";
-    static estrella = 'Sol';
-
-    static nombrarSistema() {
-        console.log(`Sistema planetario, planeta: ${this.planeta}, estrella: ${this.estrella}`);
-    }
-}
-
-//console.log(Sistema.planeta);
-//console.log(Sistema.estrella);
-
-const probando = new Sistema();
-//probando.planeta = "Jupiter";
-//probando.estrella = "Sirio";
-//console.log(probando.estrella);
+console.log(zzz.pais);
 
 
-Sistema.nombrarSistema();
 
