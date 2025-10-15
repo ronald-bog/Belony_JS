@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    background-color: rgb(247, 247, 157);
+}
+
+.titulo1,
+.titulo2,
+.titulo3 {
+    color: green
+}
+
+/* .titulo2{
+    color: blueviolet
+}
+.titulo3{
+    color: cadetblue
+} */
+
+.titulo1 {
+    border: 5px solid black ;
+    padding: 50px 10px 5px 100px;
+    margin: 50px;
+}
+
+.titulo3:hover{
+    color: black;
+}
+
+#title {
+    color: fuchsia
+}
+
+p {
+    background-color: red;
+
+    &.p1 {
+        color: white;
+    }
+
+    &.p2 {
+        color: yellow;
+    }
+}
+
+li {
+    font-family: Arial, Helvetica, sans-serif;
+    color: brown;
+}
+
+.btn_form1{
+    color: red
+}
+
+.btn_form2 {
+    color: green
+}
+
+.btn_form2:hover{
+    background-color: black;
+    color: azure;
+}
+
+/* p {
+    background-color: red;
+}
+p.p1 {
+    color: white;
+}
+p.p2 {
+    color: yellow;
+} */
+
+/* p {
+    background-color: red;
+}
+
+.p1 {
+    color: white;
+}
+
+.p2 {
+    color: yellow;
+} */
+
