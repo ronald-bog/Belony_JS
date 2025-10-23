@@ -5,27 +5,50 @@
     background-color: aquamarine;
 }
 
+/* 
 .container {
     display: flex;
     justify-content:flex-end ;
     align-items: end;
     height: 100vh;
+} */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 25px;
+    height: 100vh;
 }
 
 .cuadrado1 {
-    width: 100px;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     background-color: red;
 }
 
 .cuadrado2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuaInt {
     width: 100px;
     height: 100px;
     background-color: blue;
 }
 
 .cuadrado3 {
-    width: 100px;
-    height: 100px;
-    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadrado4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

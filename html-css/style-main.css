@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+label {
+    cursor: pointer;
+}
+
+#btn {
+    cursor: pointer;
+}
+
+.cambio1 {
+    color: black;
+}
+
+.change2 {
+    color: red;
+}
+
+.dark {
+    background-color: rgb(37, 37, 37);
+    color: wheat;
+}
