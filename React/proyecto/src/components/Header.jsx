@@ -1,14 +1,23 @@
 import './header.css';
 
 export function Header() {
+    const lenguaje1 = 'Javascript';
+    const lenguaje2 = 'Python';
+    const nombres = ['Belony', 'Peter', 'Hulk', 'Sofia', 'Bill', 'Steve', 'Ronald', 'Jeff'];
+
+    function saludar() {
+        return `${lenguaje1} ${lenguaje2}`;
+    }
+
+    function saludar2() {
+        console.log('Este es un LOG');
+    }
 
     return (
         <div className='header'>
-            <h2>Es es el Header</h2>
-            <h3>Es es el Header</h3>
-            <h3>Es es el Header</h3>
-            <h3>Es es el Header</h3>
-            <h1>Es es el Header</h1>
+            {nombres.map((elem, idx) => (
+                <h6>{`valor: ${elem} - indice: ${idx}`}</h6>
+            ))}
         </div>
     );
 }
