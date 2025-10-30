@@ -1,4 +1,3 @@
-import './contenido.css';
 
 export function Contenido() {
 

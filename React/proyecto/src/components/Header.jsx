@@ -1,4 +1,4 @@
-import './header.css';
+
 
 export function Header() {
     const lenguaje1 = 'Javascript';
