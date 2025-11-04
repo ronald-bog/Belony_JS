@@ -1,9 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@use "index" as *;
+@use "scss/contenido";
+@use "scss/footer";
+@use "scss/header";
 
-@import 'scss/contenido';
-@import 'scss/footer';
-@import 'scss/header';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

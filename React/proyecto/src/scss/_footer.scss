@@ -1,17 +1,21 @@
-$colores: white;
+@use "../index" as *;
 
 .footer {
-    background-color: green;
-    h3{
-        color: $colores;
-    }
-    h1{
-        color: $colores;
-    }
-    h4{
-        color: $colores;
-    }
-    p{
-        color: $colores;
-    }
+  background-color: green;
+  h3 {
+    color: $colores;
+  }
+  h1 {
+    color: $colores;
+  }
+  h4 {
+    color: $colores;
+  }
+  p {
+    @include parrafo;
+  }
+
+  button {
+    @include boton(yellow, 35px 50px, 20px);
+  }
 }

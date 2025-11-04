@@ -1,0 +1,49 @@
+@mixin tituloEstilizado($color-texto, $size: 10px) {
+  color: $color-texto;
+  cursor: pointer;
+  font-size: $size;
+  font-weight: bold;
+}
+
+@mixin parrafo {
+  color: brown;
+  font-weight: bold;
+  background-color: aquamarine;
+  font-size: 30px;
+}
+
+@mixin boton($bc, $pd, $rd) {
+  background-color: $bc;
+  padding: $pd;
+  color: black;
+  border: 0;
+  border-radius: $rd;
+  cursor: pointer;
+  &:hover {
+    background-color: aqua;
+    color: red;
+  }
+}
+
+// @mixin mq720 {
+//   @media (max-width: 720px) {
+//     background-color: cadetblue;
+//     font-size: 18px;
+//   }
+// }
+
+@mixin mq720 {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
+@mixin mq1080 {
+  @media (max-width: 1080px) {
+    @content;
+  }
+}
+@mixin mq500 {
+  @media (max-width: 500px) {
+    @content;
+  }
+}

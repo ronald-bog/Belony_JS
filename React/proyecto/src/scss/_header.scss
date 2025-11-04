@@ -1,5 +1,14 @@
-$variableColor: red;
+@use "../index" as *;
 
 .header {
-    background-color: $variableColor;
+  background-color: red;
+  font-size: 30px;
+  @include mq720 {
+    background-color: cadetblue;
+    font-size: 18px;
+  }
+  @include mq500 {
+    background-color: rgb(160, 95, 148);
+    font-size: 10px;
+  }
 }

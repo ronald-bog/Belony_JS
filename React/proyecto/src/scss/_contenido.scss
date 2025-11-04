@@ -1,7 +1,9 @@
-.contenido {
-    background-color: chocolate;
+@use "../index" as *;
 
-    h3 {
-        color: white
-    }
+.contenido {
+  background-color: chocolate;
+
+  h3 {
+    @include tituloEstilizado(blue, 40px);
+  }
 }
