@@ -11,10 +11,16 @@ export function App() {
     return "Estamos haciendo una prueba desde el padre con una funcion";
   }
 
+  function compartirHijoPadre(num) {
+    const numMulti = num * 10;
+    console.log(`Numero recibido del hijo: ${numMulti}`);
+  }
+
   return (
     <div>
       {/* <Header /> */}
-      <Contenido propDePrueba="Esto contenido que me envia el padre (APP)" propiedad2="este es el segundo ejemplo ......" propiedadF={mostrarNumero}/>
+      <h3>ESTO ES CONTENIDO DE APP.JSX</h3>
+      <Contenido propDePrueba="Este contenido me envia el padre (APP)" propiedad2="este es el segundo ejemplo ......" propiedadF={mostrarNumero} compartir={compartirHijoPadre} />
     </div>
   );
 }

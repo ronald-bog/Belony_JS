@@ -1,9 +1,17 @@
 // PADRE
+import { App } from '../App';
 import { Catalogo } from './Catalogo';
-export function Contenido({ propDePrueba, propiedad2, propiedadF }) {
+export function Contenido({ propDePrueba, propiedad2, propiedadF, compartir }) {
     console.log('Se renderizo el componente');
 
-    console.log(`el valor que recibi del padre es: ${propiedadF()}`);
+    //propDePrueba = 'Esta propiedad cambio';
+
+    //console.log(propDePrueba);
+    //console.log(`el valor que recibi del padre es: ${propiedadF()}`);
+
+    const numeroA = 25;
+
+    compartir(numeroA);
 
 
     function saludar() {
@@ -17,7 +25,6 @@ export function Contenido({ propDePrueba, propiedad2, propiedadF }) {
 
     return (
         <div className='contenido'>
-
             <h3>Este es el componente PRUEBA .....</h3>
             <br />
             <br />
@@ -29,6 +36,7 @@ export function Contenido({ propDePrueba, propiedad2, propiedadF }) {
             <h1>{propiedadF()}</h1>
             <button onClick={propiedadF}>TESTER</button>
             <button onClick={() => console.log(propiedadF())}>TESTER2</button>
+            <button onClick={() => compartir(numeroA)}>Enviar a Papa</button>
         </div>
     );
 }
