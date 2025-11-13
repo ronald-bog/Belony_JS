@@ -3,6 +3,8 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import './styles.scss';
 import { Catalogo } from './components/Catalogo';
+import { UseRef } from './components/UseRef';
+import { State } from './components/State';
 
 export function App() {
   //const [count, setCount] = useState(0);
@@ -17,10 +19,13 @@ export function App() {
   }
 
   return (
-    <div>
-      {/* <Header /> */}
-      <h3>ESTO ES CONTENIDO DE APP.JSX</h3>
-      <Contenido propDePrueba="Este contenido me envia el padre (APP)" propiedad2="este es el segundo ejemplo ......" propiedadF={mostrarNumero} compartir={compartirHijoPadre} />
-    </div>
+    <>
+      <State />
+    </>
   );
 }
+
+
+{/* <Header /> */ }
+{/*       <h3>ESTO ES CONTENIDO DE APP.JSX</h3>
+      <Contenido propDePrueba="Este contenido me envia el padre (APP)" propiedad2="este es el segundo ejemplo ......" propiedadF={mostrarNumero} compartir={compartirHijoPadre} /> */}
