@@ -5,6 +5,7 @@ import './styles.scss';
 import { Catalogo } from './components/Catalogo';
 import { UseRef } from './components/UseRef';
 import { State } from './components/State';
+import { RefVsState } from './components/RefVsState';
 
 export function App() {
   //const [count, setCount] = useState(0);
