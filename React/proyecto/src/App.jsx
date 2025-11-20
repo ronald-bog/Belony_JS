@@ -6,6 +6,7 @@ import { Catalogo } from './components/Catalogo';
 import { UseRef } from './components/UseRef';
 import { State } from './components/State';
 import { RefVsState } from './components/RefVsState';
+import { UseStateScs } from './components/UseStateScss';
 
 export function App() {
   //const [count, setCount] = useState(0);
@@ -21,7 +22,7 @@ export function App() {
 
   return (
     <>
-      <State />
+      <UseStateScs />
     </>
   );
 }

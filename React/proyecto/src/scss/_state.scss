@@ -1,0 +1,15 @@
+.boton{
+    padding: 12px 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    &.activo{
+        background-color: greenyellow;
+    }
+    &.inactivo{
+        background-color: red;
+    }
+
+}
+

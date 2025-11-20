@@ -34,6 +34,10 @@ export function State() {
         setTexto('');
     }
 
+    function deleteArr(i) {
+        setLista(lista.filter((_, idx) => idx !== i));
+    }
+
     return (
         <>
             <h1>Valor: {numero}</h1>
@@ -64,14 +68,14 @@ export function State() {
                 <button onClick={agregarTarea}>Agregar</button>
                 <ul>
                     {lista.map((item, index) =>
-                        <li key={index}> {/* sirve para refeenciar el orden de los elementos */}
+                        <li key={index}> {/* sirve para diferenciar el orden de los elementos */}
                             {item}
+                            <button onClick={() => deleteArr(index)}>Delete</button>
                         </li>
                     )
                     }
                 </ul>
             </div>
-
         </>
     );
 }
