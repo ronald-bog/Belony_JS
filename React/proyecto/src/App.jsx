@@ -7,6 +7,9 @@ import { UseRef } from './components/UseRef';
 import { State } from './components/State';
 import { RefVsState } from './components/RefVsState';
 import { UseStateScs } from './components/UseStateScss';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navbar } from './components/Navbar';
+// npm install react-router-dom
 
 export function App() {
   //const [count, setCount] = useState(0);
@@ -22,7 +25,21 @@ export function App() {
 
   return (
     <>
-      <UseStateScs />
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<h1>Landing page....</h1>} />
+          <Route path='catalogo' element={<Catalogo />} />
+          <Route path='contenido' element={<Contenido />} />
+          <Route path='f' element={<Footer />} />
+          <Route path='h' element={<Header />} />
+          <Route path='rvs' element={<RefVsState />} />
+          <Route path='state' element={<State />} />
+          <Route path='ur' element={<UseRef />} />
+          <Route path='scss' element={<UseStateScs />} />
+          <Route path='*' element={<h1>❌ Esta seccion no fue encontrada ❌</h1>} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
@@ -31,3 +48,16 @@ export function App() {
 {/* <Header /> */ }
 {/*       <h3>ESTO ES CONTENIDO DE APP.JSX</h3>
       <Contenido propDePrueba="Este contenido me envia el padre (APP)" propiedad2="este es el segundo ejemplo ......" propiedadF={mostrarNumero} compartir={compartirHijoPadre} /> */}
+
+
+{/* <>
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<h1>*** PAGINA DE INICIO ***</h1>} />
+      <Route path='ejemplo' element={<h1>pagina de ejemplo</h1>} />
+      <Route path='x' element={<h1>XXXXXXXXXXXXXXXXXXXX</h1>} />
+      <Route path='about' element={<h1>Esta es la seccion acerca de nosotros</h1>} />
+      <Route path='*' element={<h1>❌ Esta seccion no fue encontrada ❌</h1>} />
+    </Routes>
+  </BrowserRouter>
+</>; */}

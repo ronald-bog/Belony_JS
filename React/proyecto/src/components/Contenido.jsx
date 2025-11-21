@@ -11,7 +11,7 @@ export function Contenido({ propDePrueba, propiedad2, propiedadF, compartir }) {
 
     const numeroA = 25;
 
-    compartir(numeroA);
+    //compartir(numeroA);
 
 
     function saludar() {
@@ -26,7 +26,7 @@ export function Contenido({ propDePrueba, propiedad2, propiedadF, compartir }) {
     return (
         <div className='contenido'>
             <h3>Este es el componente PRUEBA .....</h3>
-            <br />
+            {/* <br />
             <br />
             <br />
             <h3>{propDePrueba}</h3>
@@ -36,7 +36,7 @@ export function Contenido({ propDePrueba, propiedad2, propiedadF, compartir }) {
             <h1>{propiedadF()}</h1>
             <button onClick={propiedadF}>TESTER</button>
             <button onClick={() => console.log(propiedadF())}>TESTER2</button>
-            <button onClick={() => compartir(numeroA)}>Enviar a Papa</button>
+            <button onClick={() => compartir(numeroA)}>Enviar a Papa</button> */}
         </div>
     );
 }
