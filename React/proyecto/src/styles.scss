@@ -2,9 +2,14 @@
 @use "scss/contenido";
 @use "scss/footer";
 @use "scss/header";
+@use "scss/navbar";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.cita{
+  font-size: 12px;
 }

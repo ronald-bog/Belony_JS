@@ -9,6 +9,7 @@ import { RefVsState } from './components/RefVsState';
 import { UseStateScs } from './components/UseStateScss';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from './components/Navbar';
+import RenCond from './components/RenCond';
 // npm install react-router-dom
 
 export function App() {
@@ -37,6 +38,7 @@ export function App() {
           <Route path='state' element={<State />} />
           <Route path='ur' element={<UseRef />} />
           <Route path='scss' element={<UseStateScs />} />
+          <Route path='cond' element={<RenCond />} />
           <Route path='*' element={<h1>❌ Esta seccion no fue encontrada ❌</h1>} />
         </Routes>
       </BrowserRouter>

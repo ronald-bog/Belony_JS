@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: aquamarine;
+  height: 70px;
+  .link {
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .active {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: blue;
+    background-color: white;
+  }
+}
