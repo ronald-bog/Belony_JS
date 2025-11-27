@@ -30,9 +30,8 @@ export default function RenCond() {
                     <p>- No te preocupes mas adlenate cuando comprendas otros temas lo veremos.</p>
                 </div>)
             }
-
-
-
         </>
     );
 }
+
+
