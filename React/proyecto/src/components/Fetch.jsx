@@ -5,10 +5,11 @@ export function Fetch() {
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [loading, setLoading] = useState(false);
-    const [mal, setMal] = useState(null);
+    const [errorDB, setErrorDB] = useState(null);
 
     async function loadUsers() {
         setLoading(true);
+        setErrorDB(null);
         try {
             const resultado = await fetch("https://jsonplaceholder.typicode.com/users");
 
@@ -20,13 +21,12 @@ export function Fetch() {
             const datosBody = await resultado.json();
             setUsuarios(datosBody);
         } catch (error) {
-            console.log(error.message);
-            setMal(error.message);
+            setUsuarios([]);
+            setErrorDB(error.message);
         }
         finally {
             setLoading(false);
         }
-
     }
 
     async function enviarUsuario(e) {
@@ -56,7 +56,7 @@ export function Fetch() {
         <>
             <h1>*** Clase de fetch ***</h1>
             {loading && <h3 className="loading">Cargando.....</h3>}
-            <h6>{mal}</h6>
+            {errorDB && <h6>{errorDB}</h6>}
             <button onClick={loadUsers}>LOAD</button>
             <ul>
                 {usuarios.map(obj =>
