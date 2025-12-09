@@ -30,7 +30,7 @@ export function Fetch() {
     }
 
     async function enviarUsuario(e) {
-        e.preventDefault(); // evitar recarga por defecto de hmtl al usar formularios
+        e.preventDefault(); // evitar recarga por defecto de html al usar formularios
 
         try {
             const respuesta = await fetch("https://jsonplaceholder.typicode.com/user", {
