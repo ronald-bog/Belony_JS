@@ -7,11 +7,12 @@ export function Navbar() {
             <nav>
                 <Link className="link" to='scss'>CONTENIDO </Link>
                 <Link className="link" to='catalogo'>CATALOGO </Link>
-                <NavLink className="link" to='cond'>RENDERIZADO CONDICIONADO </NavLink>
-                <NavLink className="link" to='state'>SECCION STATE </NavLink>
+                <NavLink className="link" to='cond'> CONDICIONADO </NavLink>
+                <NavLink className="link" to='effect'>EFECTO</NavLink>
+                {/*                 <NavLink className="link" to='state'>SECCION STATE </NavLink>
                 <NavLink className="link" to='f'>FOOTER </NavLink>
                 <NavLink className="link prueba" to='RefVsState'>REF-STATE </NavLink>
-                <NavLink className="link" to='ur'>REF</NavLink>
+                <NavLink className="link" to='ur'>REF</NavLink> */}
             </nav>
         </>
     );

@@ -5,20 +5,54 @@ export default function UseEffect() {
     const [update, setUpdate] = useState(false);
     const [numero, setNumero] = useState(0);
 
-    useEffect(() => {
-        console.log('Se ejecuto dentro useEffect');
-    }, [numero]);
+    console.log('***** SE MONTO EL COMPONENTE');
 
-    console.log('Se ejecuto fuera useEffect , se renderizo componente');
+    /*  useEffect(() => {
+         //getUsuarios();
+     }, []); */
+
+    async function getUsuarios() {
+        try {
+            const usuarios = await fetch("https://jsonplaceholder.typicode.com/users");
+
+            if (!usuarios.ok) {
+                throw new Error('Error al cargar usuarios'); //generamos excepcion manual
+            }
+
+            const datosBody = await usuarios.json();
+            console.log(datosBody);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    useEffect(() => {
+        let num = 1;
+        const ejemplo = setInterval(() => {
+            console.log('HOLA');
+            console.log(num += 1);
+        }, 2000);
+
+        return () => {
+            clearInterval(ejemplo);
+            console.log('SE DESMONTO EL COMPONENTE XXXXXXXXX');
+        };
+    }, []);
+
+    /*     useEffect(() => {
+            console.log('Se ejecuto dentro useEffect');
+        }, [numero]); */
+
+    //console.log('Se ejecuto fuera useEffect , se renderizo componente');
 
     function actualiza() {
-        if (update === false) {
-            setUpdate(true);
-        } else {
+        if (update) {
             setUpdate(false);
+        } else {
+            setUpdate(true);
         }
         console.log(update);
-        /*         setUpdate(update === false ? true : false);
+        /*         setUpdate(update ? false : true);
                 console.log(update); */
     }
 
@@ -31,7 +65,6 @@ export default function UseEffect() {
     return (
         <>
             <button onClick={actualiza}>ACTUALIZAR</button>
-
             <button onClick={cambiarNumero}>INCREMENTAR NUMERO</button>
         </>
     );
