@@ -7,6 +7,12 @@ export default function UseEffect() {
 
     console.log('***** SE MONTO EL COMPONENTE');
 
+    let num = 1;
+    const ejemplo = setInterval(() => {
+        console.log('HOLA');
+        console.log(num += 1);
+    }, 2000);
+
     /*  useEffect(() => {
          //getUsuarios();
      }, []); */
@@ -59,7 +65,6 @@ export default function UseEffect() {
     function cambiarNumero() {
         setNumero(numero + 1);
         console.log(numero);
-
     }
 
     return (

@@ -12,6 +12,7 @@ import { Navbar } from './components/Navbar';
 import RenCond from './components/RenCond';
 import { Fetch } from './components/Fetch';
 import UseEffect from './components/UseEffect';
+import { Axios } from './components/Axios';
 // npm install react-router-dom
 
 export function App() {
@@ -43,6 +44,7 @@ export function App() {
           <Route path='cond' element={<RenCond />} />
           <Route path='fetch' element={<Fetch />} />
           <Route path='effect' element={<UseEffect />} />
+          <Route path='axios' element={<Axios />} />
           <Route path='*' element={<h1>❌ Esta seccion no fue encontrada ❌</h1>} />
         </Routes>
       </BrowserRouter>
